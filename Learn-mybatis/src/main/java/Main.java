@@ -1,4 +1,4 @@
-import com.ithema.pojo.User;
+import com.itheima.pojo.User;
 
 public class Main {
     public static void main(String[] args) {

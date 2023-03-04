@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StaffMapper">
+
+    <!-- 1⃣️ 根据id查询员工信息 -->
+    <select id="selectStaffById" parameterType="Integer" resultType="com.example.entity.Staff">
+        select * from staff where id = #{id}
+    </select>
+
+    <!-- 2⃣️ 新增员工 -->
+    <insert id="addStaff" parameterType="com.example.entity.Staff">
+        insert into staff(id, name, age, position)
+            values(#{id}, #{name}, #{age}, #{position})
+    </insert>
+
+    <!-- 3⃣️ 根据id修改员工信息 -->
+    <update id="updateStaffById" parameterType="com.example.entity.Staff">
+        update staff set id = #{staff.id},
+            name = #{staff.name},
+            age = #{staff.age},
+            position = #{staff.position}
+        where id = #{id}
+    </update>
+
+    <!-- 4⃣️ 根据id删除员工信息 -->
+    <delete id="deleteStaffById" parameterType="Integer">
+        delete from staff where id = #{id}
+    </delete>
+
+</mapper>

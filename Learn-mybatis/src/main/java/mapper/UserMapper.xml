@@ -4,12 +4,12 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
 
-    <!--    <select id="findById" parameterType="int" resultType="com.ithema.pojo.User">-->
+    <!--    <select id="findById" parameterType="int" resultType="com.itheima.pojo.User">-->
     <!--        select * from users where uid = #{uid}-->
     <!--    </select>-->
 
     <!--  学习resultMap  -->
-    <resultMap type="com.ithema.pojo.User" id="userMap" >
+    <resultMap type="com.itheima.pojo.User" id="userMap" >
         <id property="id" column="uid"></id>
         <result property="name" column="uname"></result>
         <result property="age" column="uage"></result>
