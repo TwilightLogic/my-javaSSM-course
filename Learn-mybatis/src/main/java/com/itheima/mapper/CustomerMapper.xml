@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.CustomerMapper">
+    <select id="findCustomerByNameAndJobs"
+            parameterType="com.itheima.pojo.Customer"
+            resultType="com.itheima.pojo.Customer">
+        SELECT * FROM customer where 1 = 1
+        <!--    `WHERE 1 = 1`（❌会发生Sql注入）是为了避免`WHERE`关键字后面直接跟着`AND`    -->
+        <if test="username != null and username != ''">
+            <!--      模糊查询`SELECT * FROM customer where name like '%Logic%'`      -->
+            AND username LIKE CONCAT('%', #{username}, '%')
+        </if>
+        <if test="jobs != null and username != ''">
+            AND jobs = #{jobs}
+        </if>
+    </select>
+</mapper>

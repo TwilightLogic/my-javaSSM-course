@@ -16,6 +16,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="com/itheima/mapper/CustomerMapper.xml"/>
     </mappers>
 </configuration>
