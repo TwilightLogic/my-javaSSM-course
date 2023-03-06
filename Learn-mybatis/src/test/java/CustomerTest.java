@@ -22,8 +22,6 @@ public class CustomerTest {
             for (Customer customer: customers) {
                 System.out.println(customer);
             }
-
-            sqlSession.close();
         }
     }
 }
