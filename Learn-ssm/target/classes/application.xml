@@ -6,10 +6,15 @@
 
     <!--  Bean的注册与配置  -->
     <!--  向IOC容器注册class为xxx的bean ⬇️  -->
-    <bean name="artTeacher" class="org.example.entity.ArtTeacher" />
+    <bean name="teacher" class="org.example.entity.ProgramTeacher" />
     <bean name="student" class="org.example.entity.Student">
-        <property name="teacher" ref="artTeacher"></property>
+        <constructor-arg name="name" value="小明" />
+        <constructor-arg name="teacher" ref="teacher" />
 
+        <!--
+        <property name="name" value="小明"/>
+        <property name="teacher" ref="programTeacher"/>
+        -->
     </bean>
 
 </beans>
