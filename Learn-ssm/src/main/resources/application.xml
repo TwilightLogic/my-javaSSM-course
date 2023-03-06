@@ -11,6 +11,7 @@
         <constructor-arg name="name" value="小明" />
         <constructor-arg name="teacher" ref="teacher" />
 
+        <!--    😖   -->
         <!--
         <property name="name" value="小明"/>
         <property name="teacher" ref="programTeacher"/>
