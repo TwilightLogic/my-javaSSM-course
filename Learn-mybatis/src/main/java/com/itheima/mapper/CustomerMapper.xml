@@ -7,13 +7,25 @@
             parameterType="com.itheima.pojo.Customer"
             resultType="com.itheima.pojo.Customer">
         SELECT * FROM customer where 1 = 1
-        <!--    `WHERE 1 = 1`（❌会发生Sql注入）是为了避免`WHERE`关键字后面直接跟着`AND`    -->
-        <if test="username != null and username != ''">
-            <!--      模糊查询`SELECT * FROM customer where name like '%Logic%'`      -->
-            AND username LIKE CONCAT('%', #{username}, '%')
-        </if>
-        <if test="jobs != null and username != ''">
-            AND jobs = #{jobs}
-        </if>
+        <choose>
+            <when test="username !=null and username !=''">
+                AND username LIKE CONCAT('%', #{username}, '%')
+            </when>
+            <when test="jobs != null and username != ''">
+                AND jobs = #{jobs}
+            </when>
+            <otherwise>
+                AND phone IS NOT NULL
+            </otherwise>
+        </choose>
+            <!--    这里是用if语句 ⬇️    -->
+<!--        &lt;!&ndash;    `WHERE 1 = 1`（❌会发生Sql注入）是为了避免`WHERE`关键字后面直接跟着`AND`    &ndash;&gt;-->
+<!--        <if test="username != null and username != ''">-->
+<!--            &lt;!&ndash;      模糊查询`SELECT * FROM customer where name like '%Logic%'`      &ndash;&gt;-->
+<!--            AND username LIKE CONCAT('%', #{username}, '%')-->
+<!--        </if>-->
+<!--        <if test="jobs != null and username != ''">-->
+<!--            AND jobs = #{jobs}-->
+<!--        </if>-->
     </select>
 </mapper>

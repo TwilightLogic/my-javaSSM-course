@@ -7,8 +7,8 @@
     <!--  Bean的注册与配置  -->
     <!--  向IOC容器注册class为xxx的bean ⬇️  -->
     <bean name="customer" class="com.itheima.pojo.Customer">
-        <property name="username" value="jack"/>
-        <property name="jobs" value="teacher"/>
+<!--        <property name="username" value="joy"/>-->
+<!--        <property name="jobs" value="teacher"/>-->
     </bean>
 
 </beans>

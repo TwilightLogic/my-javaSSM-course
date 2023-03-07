@@ -9,7 +9,13 @@ public class Student {
 
     // 如果是有参构造，我们的bean就用不了了，我们可以用`constructor-org`
     public Student(String name, Teacher teacher) {
+        System.out.println("1");
         this.name = name;
+        this.teacher = teacher;
+    }
+
+    public Student(Teacher teacher) {
+        System.out.println("2");
         this.teacher = teacher;
     }
 
