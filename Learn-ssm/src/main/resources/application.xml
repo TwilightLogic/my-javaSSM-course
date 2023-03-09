@@ -8,8 +8,18 @@
     <!--  向IOC容器注册class为xxx的bean ⬇️  -->
     <bean name="teacher" class="org.example.entity.ProgramTeacher" />
     <bean name="student" class="org.example.entity.Student">
-        <constructor-arg name="name" value="小明" />
-        <constructor-arg name="teacher" ref="teacher" />
+        <!--    对于集合类型 ⬇️    -->
+        <property name="list">
+            <list>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </list>
+        </property>
+
+        <!--    有参构造器 ⬇️    -->
+        <!--        <constructor-arg name="name" value="小明" />-->
+        <!--        <constructor-arg name="teacher" ref="teacher" />-->
 
         <!--
         <property name="name" value="小明"/>

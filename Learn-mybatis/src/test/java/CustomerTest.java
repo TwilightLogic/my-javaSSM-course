@@ -2,26 +2,27 @@ import com.itheima.pojo.Customer;
 import com.itheima.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
 public class CustomerTest {
 
     @Test
-    public void findCustomerByNameAndJobsTest() {
-        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
-            ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-            Customer bean = context.getBean(Customer.class);
+    public void findByArrayTest() {
 
-            // 感觉可以学习下用list来输出结果 ⬇️
-            // 查询
-            List<Customer> customers = sqlSession.selectList("com.itheima.mapper.CustomerMapper.findCustomerByNameAndJobs", bean);
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+
+            // 封装查询id
+            Integer[] roleIds = {2, 3};
+
+            // 执行SqlSession的查询方法，返回结果集
+            List<Customer> customers = sqlSession.selectList("com.itheima.mapper.CustomerMapper.findByArray", roleIds);
+
             // 输出
             for (Customer customer: customers) {
                 System.out.println(customer);
             }
         }
+
     }
 }
