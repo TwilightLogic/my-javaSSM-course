@@ -3,6 +3,7 @@ import com.itheima.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerTest {
@@ -24,5 +25,23 @@ public class CustomerTest {
             }
         }
 
+    }
+
+    @Test
+    public void findByListTest() {
+
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+
+            List<Integer> ids = new ArrayList<Integer>();
+            ids.add(1);
+            ids.add(2);
+
+            List<Customer> customers = sqlSession.selectList("com.itheima.mapper.CustomerMapper.findByList", ids);
+
+            for (Customer customer: customers) {
+                System.out.println(customer);
+            }
+
+        }
     }
 }

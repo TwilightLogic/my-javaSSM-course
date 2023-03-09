@@ -5,9 +5,18 @@
 <mapper namespace="com.itheima.mapper.CustomerMapper">
 
     <!--  Using <foreach>  -->
+    <!--  findByArray  -->
     <select id="findByArray" parameterType="java.util.Arrays" resultType="com.itheima.pojo.Customer">
         select * from customer where id in
         <foreach collection="array" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!--  findByList  -->
+    <select id="findByList" parameterType="java.util.Arrays" resultType="com.itheima.pojo.Customer">
+        select * from customer where id in
+        <foreach collection="list" item="id" index="index" open="(" separator="," close=")">
             #{id}
         </foreach>
     </select>
