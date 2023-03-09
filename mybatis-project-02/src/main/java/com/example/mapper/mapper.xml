@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StudentsMapper">
+
+    <!--  多条件查询  -->
+    <select id="findStudentsByNameAndMajor" parameterType="com.example.entity.Students" resultType="com.example.entity.Students">
+        select * from students where 1=1
+        <choose>
+            <when test="name != null and name !=''">
+                and name like concat('%', #{name}, '%')
+            </when>
+            <when test="major != null and major !=''">
+                and major like concat('%', #{major}, '%')
+            </when>
+            <otherwise>
+                and id is not null
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--  单条件查询  -->
+    <select id="findStudentsListById" parameterType="java.util.Arrays" resultType="com.example.entity.Students">
+        select * from students where id in
+        <foreach collection="list" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+</mapper>
