@@ -4,6 +4,9 @@
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="dp.properties"/>
+    <typeAliases>
+        <package name="com.itheima.pojo"/>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -16,6 +19,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/itheima/mapper/CustomerMapper.xml"/>
+        <mapper resource="com/itheima/mapper/IdCardMapper.xml"/>
+        <mapper resource="com/itheima/mapper/PersonMapper.xml"/>
     </mappers>
 </configuration>
