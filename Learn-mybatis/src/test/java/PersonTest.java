@@ -16,4 +16,13 @@ public class PersonTest {
         }
 
     }
+
+    @Test
+    public void findPersonByTest2() {
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+            Person person = sqlSession.selectOne("com.itheima.mapper.PersonMapper.findPersonById2", 1);
+
+            System.out.println(person);
+        }
+    }
 }
