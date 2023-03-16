@@ -19,7 +19,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/itheima/mapper/IdCardMapper.xml"/>
-        <mapper resource="com/itheima/mapper/PersonMapper.xml"/>
+        <mapper resource="com/itheima/mapper/UsersMapper.xml"/>
     </mappers>
 </configuration>
