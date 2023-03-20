@@ -18,4 +18,21 @@ public class log4jTest {
 
         }
     }
+
+    @Test
+    public void updateBookTest() {
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+            Book book1 = sqlSession.selectOne("com.itheima.mapper.BookMapper.findBookById", 2);
+            System.out.println(book1);
+
+            Book book2 = new Book();
+            book2.setId(3);
+            book2.setBookName("PHP");
+            book2.setPrice(99);
+            sqlSession.update("com.itheima.mapper.BookMapper.updateBook", book2);
+
+            System.out.println(book2);
+        }
+
+    }
 }
