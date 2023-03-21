@@ -52,4 +52,15 @@ public class AnnotationQueryTest {
             }
         }
     }
+
+    @Test
+    public void annotationSelectWorkerByIdAndNameTest() {
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+            WorkerMapper workerMapper = sqlSession.getMapper(WorkerMapper.class);
+
+            Worker worker = workerMapper.selectWorkerByIdAndName(1, "Damn");
+
+            System.out.println(worker);
+        }
+    }
 }

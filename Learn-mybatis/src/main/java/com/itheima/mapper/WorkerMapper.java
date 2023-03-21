@@ -1,10 +1,7 @@
 package com.itheima.mapper;
 
 import com.itheima.pojo.Worker;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 public interface WorkerMapper {
     @Select("select * from tb_worker where id = #{id}")
@@ -20,4 +17,8 @@ public interface WorkerMapper {
 
     @Delete("delete from tb_worker where id = #{id}")
     int deleteWorker(int id);
+
+    // Learn @Param()
+    @Select("select * from tb_worker where id=#{id} and name=#{name}")
+    Worker selectWorkerByIdAndName(@Param("id") int id, @Param("name") String name);
 }
