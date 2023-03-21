@@ -38,4 +38,18 @@ public class AnnotationQueryTest {
             System.out.println(result);
         }
     }
+
+    @Test
+    public void annotationDeleteWorkerTest() {
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+            WorkerMapper workerMapper = sqlSession.getMapper(WorkerMapper.class);
+
+            int result = workerMapper.deleteWorker(1);
+            if (result > 0) {
+                System.out.println(result);
+            } else {
+                System.out.println("Failed to delete data!");
+            }
+        }
+    }
 }

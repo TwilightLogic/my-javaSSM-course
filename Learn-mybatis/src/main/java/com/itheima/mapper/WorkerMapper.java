@@ -1,6 +1,7 @@
 package com.itheima.mapper;
 
 import com.itheima.pojo.Worker;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -16,4 +17,7 @@ public interface WorkerMapper {
     @Update("update tb_worker set name = #{name}, age = #{age}" +
             " where id = #{id}")
     int updateWorker(Worker worker);
+
+    @Delete("delete from tb_worker where id = #{id}")
+    int deleteWorker(int id);
 }
