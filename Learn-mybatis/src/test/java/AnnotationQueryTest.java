@@ -27,4 +27,15 @@ public class AnnotationQueryTest {
             System.out.println(result);
         }
     }
+
+    @Test
+    public void annotationUpdateWorkerTest() {
+        try (SqlSession sqlSession = MybatisUtils.getSession(true)) {
+            WorkerMapper workerMapper = sqlSession.getMapper(WorkerMapper.class);
+
+            int result = workerMapper.updateWorker(new Worker().setName("Damn").setAge(42).setId(1));
+
+            System.out.println(result);
+        }
+    }
 }
