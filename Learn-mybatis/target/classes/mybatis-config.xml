@@ -22,6 +22,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/itheima/mapper/BookMapper.xml"/>
+        <!--        <mapper resource="com/itheima/mapper/"/>-->
+        <mapper class="com.itheima.mapper.WorkerMapper" />
     </mappers>
 </configuration>
