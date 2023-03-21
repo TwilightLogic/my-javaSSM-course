@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.mapper">
+    <select id="findProductWithCategory" parameterType="Integer" resultMap="ProductWithCategoryResult">
+        select p.*,c.id as category_id, c.typename
+        from product p, category c
+        where c.id=p.typeid
+        and c.id=#{id}
+    </select>
+    <resultMap id="ProductWithCategoryResult" type="com.example.entity.Category">
+        <id property="id" column="id" />
+        <result property="typename" column="typename" />
+        <collection property="productList" ofType="com.example.entity.Product">
+            <id property="id" column="id" />
+            <result property="goodsName" column="goodsname" />
+            <result property="price" column="price" />
+            <result property="typeId" column="typeid" />
+        </collection>
+    </resultMap>
+</mapper>
