@@ -22,7 +22,6 @@
         </environment>
     </environments>
     <mappers>
-        <!--        <mapper resource="com/itheima/mapper/"/>-->
-        <mapper class="com.itheima.mapper.WorkerMapper" />
+        <package name="com.itheima.mapper"/>
     </mappers>
 </configuration>

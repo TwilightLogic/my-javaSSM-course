@@ -12,4 +12,5 @@ public class Person {
     private Integer age;
     private String sex;
     private IdCard card;    // 与person关联的证件
+
 }
