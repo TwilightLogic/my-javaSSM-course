@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itheima.mapper.PersonMapper">
+<mapper namespace="com.itheima.mapper.\PersonMapper">
 
     <!--  嵌套查询：通过执行另外一条SQL映射语句来返回预期的特殊类型  -->
     <select id="findPersonById" parameterType="Integer" resultMap="IdCardWithPersonResult">

@@ -22,6 +22,7 @@
         </environment>
     </environments>
     <mappers>
-        <package name="com.itheima.mapper"/>
+        <mapper class="com.itheima.mapper.UsersMapper" />
+        <mapper class="com.itheima.mapper.OrdersMapper" />
     </mappers>
 </configuration>
