@@ -24,5 +24,6 @@
     <mappers>
         <mapper class="com.itheima.mapper.UsersMapper" />
         <mapper class="com.itheima.mapper.OrdersMapper" />
+        <mapper class="com.itheima.mapper."
     </mappers>
 </configuration>
