@@ -12,10 +12,8 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
         // 我们就不需要手动实例化对象了，因为我们可以丢给IoC容器来帮我们自动实例化
-        Student bean = context.getBean(Student.class);
+        Student student = context.getBean(Student.class);
 
-        Service service = context.getBean(Service.class);
-
-        System.out.println(service);
+        System.out.println(student);
     }
 }
