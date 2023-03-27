@@ -6,7 +6,7 @@
 
     <!--  Bean的注册与配置  -->
     <!--  向IOC容器注册class为xxx的bean ⬇️  -->
-    <bean name="teacher" class="org.example.entity.ProgramTeacher" />
+    <!--    <bean name="teacher" class="org.example.entity.ProgramTeacher" />-->
     <bean name="student" class="org.example.entity.Student">
         <!--    对于集合类型 ⬇️    -->
         <property name="list">
@@ -17,7 +17,7 @@
             </list>
         </property>
 
-        <!--    有参构造器    -->
+        <!--    有参构造器 ⬇️    -->
         <!--        <constructor-arg name="name" value="小明" />-->
         <!--        <constructor-arg name="teacher" ref="teacher" />-->
 
@@ -27,4 +27,6 @@
         -->
     </bean>
 
+    <!--  实现AService  -->
+    <bean name="AService" class="org.example.service.AService" />
 </beans>
