@@ -11,7 +11,7 @@ import java.util.List;
 public interface ClassMapper {
     @Select("SELECT * FROM c_class WHERE id=#{id}")
     @Results({@Result(id = true, column = "id", property = "id"),
-    @Result(column = "id", property = "studentList",
+        @Result(column = "id", property = "studentList",
             many = @Many(select = "com.example.dao.StudentMapper.selectByCid"))})
     Class selectClassById(int id);
 }
