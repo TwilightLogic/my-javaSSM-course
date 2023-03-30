@@ -36,8 +36,8 @@
         <!--    name⬇️ Student里的实体名    -->
         <!--    这里的ref⬇️ 会匹配上面bean中的name    -->
         <!--    记得写set方法 ‼️    -->
-        <property name="teacher" ref="artTeacher" />
-        <property name="name" value="小明" />
+        <!--        <property name="teacher" ref="artTeacher" />-->
+        <!--        <property name="name" value="小明" />-->
     </bean>
 
 </beans>
