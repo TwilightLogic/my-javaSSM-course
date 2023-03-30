@@ -9,6 +9,7 @@ public class TestSpring {
         UserService userService = applicationContext.getBean(UserService.class);
 
         boolean flag = userService.login("Logic", "123456");
+
         if (flag) {
             System.out.println("Success!");
         } else {
