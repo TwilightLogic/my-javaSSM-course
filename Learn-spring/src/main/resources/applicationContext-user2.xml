@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user2" class="com.itheima.User2">
+        <!--    这里的name本质上是setter方法的set名    -->
+        <!--    比如说定义了setId方法，那这里的name就是id    -->
+        <!--    如果名字叫setIdd方法，那这里的name就是idd    -->
+        <property name="name" value="Logic" />
+        <property name="id" value="1" />
+        <property name="password" value="123456" />
+    </bean>
+</beans>

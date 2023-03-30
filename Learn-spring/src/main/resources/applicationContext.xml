@@ -4,9 +4,8 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user2" class="com.itheima.User2">
-        <property name="name" value="Logic" />
-        <property name="id" value="1" />
-        <property name="password" value="123456" />
+    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"></bean>
+    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
     </bean>
 </beans>
