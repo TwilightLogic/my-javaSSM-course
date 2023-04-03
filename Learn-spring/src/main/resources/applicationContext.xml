@@ -11,4 +11,5 @@
 
     <!--  Learn bean  -->
     <bean id="bean1" class="com.itheima.Bean1" />
+    <bean id="bean2" class="com.itheima.MyBean2Factory" factory-method="createBean" />
 </beans>
