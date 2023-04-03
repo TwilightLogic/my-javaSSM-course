@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--  1 首先把要切入的类注册为bean  -->
+    <bean class="Student" />
+    <!--  2 要切入的方法的类也注册为bean  -->
+    <bean id="studentAOP" class="StudentAOP" />
+    <!--  3 已知是afterStudy方法，所以肯定是在方法执行之前切入啦  -->
+
+    <!--  4 告诉spring我们要进行切入  -->
+    <aop:config>
+        <!--    指定切入点，id是切入点的名字    -->
+        <!--    execution: 用于匹配方法执行的连接点，我们这里是Students类下的study()    -->
+        <aop:pointcut id="test" expression="execution(public void Student.study())"/>
+
+        <!--    指定切面    -->
+        <aop:aspect ref="studentAOP">
+            <!--      指定后置通知      -->
+            <aop:after method="afterStudy" pointcut-ref="test" />
+        </aop:aspect>
+    </aop:config>
+</beans>
