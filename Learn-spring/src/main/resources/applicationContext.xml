@@ -4,8 +4,11 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"></bean>
-    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl">
-        <property name="userDao" ref="userDao"></property>
-    </bean>
+<!--    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"></bean>-->
+<!--    <bean id="userService" class="com.itheima.service.impl.UserServiceImpl">-->
+<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
+
+    <!--  Learn bean  -->
+    <bean id="bean1" class="com.itheima.Bean1" />
 </beans>
