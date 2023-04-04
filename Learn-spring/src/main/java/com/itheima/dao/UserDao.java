@@ -1,6 +1,8 @@
 package com.itheima.dao;
 
 public interface UserDao {
-    public boolean login(String name, String password);
-
+    public void insert();
+    public void delete();
+    public void update();
+    public void select();
 }

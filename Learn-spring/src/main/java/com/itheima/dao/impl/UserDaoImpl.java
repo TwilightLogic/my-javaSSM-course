@@ -5,10 +5,22 @@ import com.itheima.dao.UserDao;
 public class UserDaoImpl implements UserDao {
 
     @Override
-    public boolean login(String name, String password) {
-        if (name.equals("张三") && password.equals("123")) {
-            return true;
-        }
-        return false;
+    public void insert() {
+        System.out.println("添加用户信息");
+    }
+
+    @Override
+    public void delete() {
+        System.out.println("删除用户信息");
+    }
+
+    @Override
+    public void update() {
+        System.out.println("更新用户信息");
+    }
+
+    @Override
+    public void select() {
+        System.out.println("查询用户信息");
     }
 }
