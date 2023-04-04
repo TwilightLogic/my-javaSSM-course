@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--  1 首先把要切入的类注册为bean  -->
+    <bean id="student" class="Student" />
+    <!--  2 要切入的方法的类也注册为bean  -->
+    <bean id="studentAOP" class="StudentAOP" />
+
+    <!--  4  -->
+    <aop:config>
+        <!--    这里告诉spring Student类的study方法是切入点   -->
+        <aop:pointcut id="test" expression="execution(* Student.study())"/>
+
+        <!--    这里告诉spring切面的类和方法    -->
+        <aop:aspect ref="studentAOP">
+            <aop:after method="afterStudy" pointcut-ref="test" />
+        </aop:aspect>
+    </aop:config>
+</beans>
