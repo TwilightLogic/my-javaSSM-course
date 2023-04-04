@@ -6,6 +6,6 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
         Student bean = context.getBean(Student.class);
-        bean.study();
+        bean.study("YES");
     }
 }

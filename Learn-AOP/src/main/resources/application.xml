@@ -15,12 +15,13 @@
     <aop:config>
         <!--    指定切入点，id是切入点的名字    -->
         <!--    execution: 用于匹配方法执行的连接点，我们这里是Students类下的study()    -->
-        <aop:pointcut id="test" expression="execution(public void Student.study())"/>
+        <aop:pointcut id="test" expression="execution(public void Student.study(String))"/>
 
         <!--    指定切面    -->
         <aop:aspect ref="studentAOP">
             <!--      指定后置通知      -->
-            <aop:after method="afterStudy" pointcut-ref="test" />
+            <!--<aop:after method="afterStudy" pointcut-ref="test" />-->
+            <aop:around method="around" pointcut-ref="test" />
         </aop:aspect>
     </aop:config>
 </beans>
