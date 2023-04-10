@@ -1,10 +1,11 @@
 package com.example.config;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -13,6 +14,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 // ⬇️ 扫描/注册 com.example.controller 包下面的所有controller
 @ComponentScan("com.example.controller")
 @Configuration
+@EnableWebMvc
 public class WebConfiguration {
 
     // 我们需要使用ThymeleafViewResolver作为视图解析器，并解析我们的HTML页面
