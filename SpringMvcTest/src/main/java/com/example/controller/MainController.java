@@ -8,12 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 // 表示添加一个路径前缀
-@RequestMapping("yyds")
+//@RequestMapping("yyds")
 public class MainController {
     // 我们可以使用`params`属性来指定请求必须携带哪些请求参数
     // 人话："要携带哪些参数才能访问我们的网页呢？"
     // 就这样写就好了："http://localhost:8080/mvc/yyds/index?username=xxxx"
-    @RequestMapping(value = "/index", params = "username")
+    // 就这样写就好了："http://localhost:8080/mvc/yyds/index?username=xxxx&password=123456"
+    @RequestMapping(value = "/index", params = {"username", "password"})
     public ModelAndView index(){
         return new ModelAndView("index");
     }
