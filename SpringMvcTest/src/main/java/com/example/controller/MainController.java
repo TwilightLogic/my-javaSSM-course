@@ -11,4 +11,7 @@ public class MainController {
     public ModelAndView index() {
         return new ModelAndView("index");
     }
+
+    @RequestMapping("/test2")
+    public ModelAndView index2() {return new ModelAndView("home");}
 }
