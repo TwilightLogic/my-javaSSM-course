@@ -1,1 +1,1 @@
-window.alert("Hello!")
+console.log("Jack I love you!")
