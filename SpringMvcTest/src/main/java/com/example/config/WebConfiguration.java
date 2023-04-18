@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -11,7 +15,8 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @Configuration
 @ComponentScan("com.example.controller")
-public class WebConfiguration {
+@EnableWebMvc
+public class WebConfiguration implements WebMvcConfigurer {
 
 
     //我们需要使用ThymeleafViewResolver作为视图解析器，并解析我们的HTML页面
@@ -39,5 +44,18 @@ public class WebConfiguration {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(resolver);   //模板解析器，默认即可
         return engine;
+    }
+
+    // 我们的页面中可能还会包含一些静态资源，比如js、css，因此这里我们还需要配置一下
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();   //开启默认的Servlet
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // **: 代表一级或者多级目录
+        registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
+        //配置静态资源的访问路径
     }
 }

@@ -6,12 +6,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-    // http://localhost:8080/mvc/test
-    @RequestMapping("/test")
+    // http://localhost:8080/mvc/index
+    @RequestMapping("/index")
     public ModelAndView index() {
-        return new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.getModel().put("name", "Damn");
+        return modelAndView;
     }
 
-    @RequestMapping("/test2")
-    public ModelAndView index2() {return new ModelAndView("home");}
+    // 我们也可以这样创建 ⬇️ 会自动返回一个ModelAndView类型的对象
+    //    @RequestMapping("/index")
+    //    public String index2() {
+    //        return "index";
+    //    }
+
 }
