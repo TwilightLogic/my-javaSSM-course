@@ -14,7 +14,9 @@ public class MainController {
     // 人话："要携带哪些参数才能访问我们的网页呢？"
     // 就这样写就好了："http://localhost:8080/mvc/yyds/index?username=xxxx"
     // 就这样写就好了："http://localhost:8080/mvc/yyds/index?username=xxxx&password=123456"
-    @RequestMapping(value = "/index", params = {"username", "password"})
+
+    // 如果我们不希望有人携带`username`这个参数进入我们的网页，我们可以 ⬇️
+    @RequestMapping(value = "/index", params = "!username")
     public ModelAndView index(){
         return new ModelAndView("index");
     }
