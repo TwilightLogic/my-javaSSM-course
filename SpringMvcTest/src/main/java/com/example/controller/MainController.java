@@ -2,11 +2,11 @@ package com.example.controller;
 
 import com.example.entity.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 // 表示添加一个路径前缀
@@ -55,9 +55,19 @@ public class MainController {
     //    }
 
     // 我们还可以直接将请求参数传递给一个实体类
-    @RequestMapping("/index")
-    public String index(User user) {
-        System.out.println("收到一个请求参数：" + user);
-        return "index";
+    // 记得写setter才行哈
+    //    @RequestMapping("/index")
+    //    public String index(User user) {
+    //        System.out.println("收到一个请求参数：" + user);
+    //        return "index";
+    //    }
+
+    // 通过使用`@CookieValue`注解，我们也可以快速获取请求携带的Cookie信息：
+    @RequestMapping(value = "/index")
+    public ModelAndView index(HttpServletResponse response,
+                              @CookieValue(value = "test", required = false) String test){
+        System.out.println("获取到cookie值为："+test);
+        response.addCookie(new Cookie("test", "lbwnb"));
+        return new ModelAndView("index");
     }
 }
