@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,9 +48,16 @@ public class MainController {
     //    }
     // 注解获取请求相关参数
     // `required=false`表示这个param参数不是一定要写的，不写的话也能访问的
+    //    @RequestMapping("/index")
+    //    public String index(@RequestParam(value = "username", required = false, defaultValue = "lbwnb") String username) {
+    //        System.out.println("收到一个请求参数：" + username);
+    //        return "index";
+    //    }
+
+    // 我们还可以直接将请求参数传递给一个实体类
     @RequestMapping("/index")
-    public String index(@RequestParam(value = "username", required = false, defaultValue = "lbwnb") String username) {
-        System.out.println("收到一个请求参数：" + username);
+    public String index(User user) {
+        System.out.println("收到一个请求参数：" + user);
         return "index";
     }
 }
