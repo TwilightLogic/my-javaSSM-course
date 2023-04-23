@@ -48,7 +48,7 @@ public class MainController {
     // 注解获取请求相关参数
     // `required=false`表示这个param参数不是一定要写的，不写的话也能访问的
     @RequestMapping("/index")
-    public String index(@RequestParam(value = "username", required = false) String username) {
+    public String index(@RequestParam(value = "username", required = false, defaultValue = "lbwnb") String username) {
         System.out.println("收到一个请求参数：" + username);
         return "index";
     }
