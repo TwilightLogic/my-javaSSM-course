@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 // 表示添加一个路径前缀
@@ -63,11 +64,20 @@ public class MainController {
     //    }
 
     // 通过使用`@CookieValue`注解，我们也可以快速获取请求携带的Cookie信息：
+    //    @RequestMapping(value = "/index")
+    //    public ModelAndView index(HttpServletResponse response,
+    //                              @CookieValue(value = "test", required = false) String test){
+    //        System.out.println("获取到cookie值为："+test);
+    //        response.addCookie(new Cookie("test", "lbwnb"));
+    //        return new ModelAndView("index");
+    //    }
+
+    // 同样的，Session也能使用注解快速获取：
     @RequestMapping(value = "/index")
-    public ModelAndView index(HttpServletResponse response,
-                              @CookieValue(value = "test", required = false) String test){
-        System.out.println("获取到cookie值为："+test);
-        response.addCookie(new Cookie("test", "lbwnb"));
+    public ModelAndView index(@SessionAttribute(value = "test", required = false) String test,
+                              HttpSession session){
+        session.setAttribute("test", "xxxx");
+        System.out.println(test);
         return new ModelAndView("index");
     }
 }
