@@ -13,6 +13,18 @@ import javax.servlet.http.HttpSession;
 // 表示添加一个路径前缀
 //@RequestMapping("yyds")
 public class MainController {
+
+    // 学习：重定向/请求转发
+    @RequestMapping(value = "/index")
+    public ModelAndView index() {
+        return new ModelAndView("redirect:home");
+    }
+
+    @RequestMapping("/home")
+    public String home() {
+        return "home";
+    }
+
     // 我们可以使用`params`属性来指定请求必须携带哪些请求参数
     // 人话："要携带哪些参数才能访问我们的网页呢？"
     // 就这样写就好了："http://localhost:8080/mvc/yyds/index?username=xxxx"
@@ -73,11 +85,12 @@ public class MainController {
     //    }
 
     // 同样的，Session也能使用注解快速获取：
-    @RequestMapping(value = "/index")
-    public ModelAndView index(@SessionAttribute(value = "test", required = false) String test,
-                              HttpSession session){
-        session.setAttribute("test", "xxxx");
-        System.out.println(test);
-        return new ModelAndView("index");
-    }
+    //    @RequestMapping(value = "/index")
+    //    public ModelAndView index(@SessionAttribute(value = "test", required = false) String test,
+    //                              HttpSession session){
+    //        session.setAttribute("test", "xxxx");
+    //        System.out.println(test);
+    //        return new ModelAndView("index");
+    //    }
+
 }
