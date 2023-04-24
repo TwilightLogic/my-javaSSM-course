@@ -14,10 +14,17 @@ import javax.servlet.http.HttpSession;
 //@RequestMapping("yyds")
 public class MainController {
 
-    // 学习：重定向/请求转发
+    // 学习：重定向
+    // 我们访问index，可以看到network的状态为302（即是重定向的意思）
+    //    @RequestMapping(value = "/index")
+    //    public ModelAndView index() {
+    //        return new ModelAndView("redirect:home");
+    //    }
+
+    // 学习：请求转发（跟重定向的区别是url不变哦！而且我们向index的请求都转发给了home来处理哦）
     @RequestMapping(value = "/index")
     public ModelAndView index() {
-        return new ModelAndView("redirect:home");
+        return new ModelAndView("forward:home");
     }
 
     @RequestMapping("/home")
