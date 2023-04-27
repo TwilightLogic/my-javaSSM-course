@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,15 @@ import javax.servlet.http.HttpSession;
 //@RequestMapping("yyds")
 public class MainController {
 
+    // 自动注入
+    @Resource
+
+
+    @RequestMapping(value = "/index")
+    public ModelAndView index() {
+        return new ModelAndView("index");
+    }
+
     // 学习：重定向
     // 我们访问index，可以看到network的状态为302（即是重定向的意思）
     //    @RequestMapping(value = "/index")
@@ -22,15 +32,15 @@ public class MainController {
     //    }
 
     // 学习：请求转发（跟重定向的区别是url不变哦！而且我们向index的请求都转发给了home来处理哦）
-    @RequestMapping(value = "/index")
-    public ModelAndView index() {
-        return new ModelAndView("forward:home");
-    }
+    //    @RequestMapping(value = "/index")
+    //    public ModelAndView index() {
+    //        return new ModelAndView("forward:home");
+    //    }
 
-    @RequestMapping("/home")
-    public String home() {
-        return "home";
-    }
+    //    @RequestMapping("/home")
+    //    public String home() {
+    //        return "home";
+    //    }
 
     // 我们可以使用`params`属性来指定请求必须携带哪些请求参数
     // 人话："要携带哪些参数才能访问我们的网页呢？"

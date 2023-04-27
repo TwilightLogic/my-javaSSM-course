@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./static/index.css">
+    <title>lucas-info</title>
+</head>
+<body>
+    <div class="container">
+        <div class="name" th:text="${name}"></div>
+        <div class="number-student" th:text="${numberStudent}"></div>
+    </div>
+</body>
+</html>

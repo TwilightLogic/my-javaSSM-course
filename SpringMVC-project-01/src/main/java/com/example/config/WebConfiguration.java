@@ -1,11 +1,9 @@
 package com.example.config;
 
-import com.example.entity.TestBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -19,8 +17,6 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 @ComponentScan("com.example.controller")
 @EnableWebMvc
 public class WebConfiguration implements WebMvcConfigurer {
-
-
     //我们需要使用ThymeleafViewResolver作为视图解析器，并解析我们的HTML页面
     @Bean
     public ThymeleafViewResolver thymeleafViewResolver(@Autowired SpringTemplateEngine springTemplateEngine){
@@ -36,7 +32,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setSuffix(".html");   //需要解析的后缀名称
-        resolver.setPrefix("/WEB-INF/template/");   //需要解析的HTML页面文件存放的位置
+        resolver.setPrefix("/WEB-INF/pages/");   //需要解析的HTML页面文件存放的位置
         return resolver;
     }
 
@@ -48,13 +44,6 @@ public class WebConfiguration implements WebMvcConfigurer {
         return engine;
     }
 
-    // 注册测试类为bean
-    @Bean
-    @RequestScope
-    public TestBean testBean() {
-        return new TestBean();
-    }
-
     // 我们的页面中可能还会包含一些静态资源，比如js、css，因此这里我们还需要配置一下
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -63,8 +52,6 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // **: 代表一级或者多级目录
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
-        //配置静态资源的访问路径
     }
 }

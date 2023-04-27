@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Poppins", serif;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: teal;
+}
+
+.container {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 2.4rem auto;
+    color: #fff;
+    max-width: 35rem;
+    height: 75vh;
+    border-radius: 9px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(
+            to bottom,
+            rgba(90, 93, 165, 1),
+            rgba(0, 0, 0, 0.7)
+    ), url(https://raw.githubusercontent.com/khadkamhn/secret-project/master/img/background.jpg) center no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.6rem;
+}
+
+.name {
+    font-size: 3.6rem;
+    padding: 9.6rem 0 0 2.4rem;
+}
+
+.number-student {
+    font-size: 2.4rem;
+    font-weight: 500;
+    padding: 0 0 0 2.4rem;
+}

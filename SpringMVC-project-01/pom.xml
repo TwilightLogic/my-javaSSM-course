@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>SpringMvcTest</artifactId>
+    <artifactId>SpringMVC-project-01</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>SpringMvcTest</name>
+    <name>SpringMVC-project-01</name>
     <packaging>war</packaging>
 
     <properties>
@@ -51,14 +51,8 @@
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
         </dependency>
-        <!--该依赖主要是针对 @Resource 使用-->
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>1.2</version>
-        </dependency>
-
     </dependencies>
+
 
     <build>
         <plugins>
