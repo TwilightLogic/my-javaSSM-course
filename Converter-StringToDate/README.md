@@ -14,4 +14,4 @@ public interface Converter<S, T> {
 }
 ```
 
-我们在这个project会自定义一个converter，这个converter可以把 `String` 类型自动转化为 `Date` 类型。 
+我们在这个project会自定义一个converter，这个converter可以把 `String` 类型自动转化为 `Date` 类型。
