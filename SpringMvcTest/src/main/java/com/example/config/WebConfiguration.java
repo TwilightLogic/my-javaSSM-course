@@ -2,6 +2,7 @@ package com.example.config;
 
 import com.example.entity.TestBean;
 import com.example.interceptor.MainInterceptor;
+import com.example.interceptor.SubInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -69,9 +70,15 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        // 一号拦截器
         registry
                 .addInterceptor(new MainInterceptor())
                 .addPathPatterns("/**")         // 添加拦截器的匹配路径
                 .excludePathPatterns("/home");  // 拦截器不拦截的路径
+
+        // 二号拦截器
+        registry.
+                addInterceptor(new SubInterceptor()).
+                addPathPatterns("/**");
     }
 }
