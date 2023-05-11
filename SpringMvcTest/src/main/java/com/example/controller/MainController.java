@@ -15,14 +15,16 @@ import javax.servlet.http.HttpSession;
 //@RequestMapping("yyds")
 public class MainController {
 
-    // 自动注入
-    @Resource
-
-
-    @RequestMapping(value = "/index")
-    public ModelAndView index() {
-        return new ModelAndView("index");
+    @RequestMapping("/index")
+    public String get() {
+        return "index";
     }
+
+    // 自动注入
+    //    @RequestMapping(value = "/index")
+    //    public ModelAndView index() {
+    //        return new ModelAndView("index");
+    //    }
 
     // 学习：重定向
     // 我们访问index，可以看到network的状态为302（即是重定向的意思）

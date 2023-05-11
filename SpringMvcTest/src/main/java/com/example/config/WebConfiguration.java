@@ -1,15 +1,13 @@
 package com.example.config;
 
 import com.example.entity.TestBean;
+import com.example.interceptor.MainInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.RequestScope;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -19,7 +17,6 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 @ComponentScan("com.example.controller")
 @EnableWebMvc
 public class WebConfiguration implements WebMvcConfigurer {
-
 
     //我们需要使用ThymeleafViewResolver作为视图解析器，并解析我们的HTML页面
     @Bean
@@ -66,5 +63,15 @@ public class WebConfiguration implements WebMvcConfigurer {
         // **: 代表一级或者多级目录
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
         //配置静态资源的访问路径
+    }
+
+    // 注册拦截器
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry
+                .addInterceptor(new MainInterceptor())
+                .addPathPatterns("/**")         // 添加拦截器的匹配路径
+                .excludePathPatterns("/home");  // 拦截器不拦截的路径
     }
 }
