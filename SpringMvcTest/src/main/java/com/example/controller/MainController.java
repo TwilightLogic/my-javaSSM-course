@@ -16,8 +16,15 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 
     @RequestMapping("/index")
-    public String get() {
+    public String index() {
+        System.out.println("我是处理controller");
         return "index";
+    }
+
+    @RequestMapping("/home")
+    public String home() {
+        System.out.println("我是home");
+        return "home";
     }
 
     // 自动注入
