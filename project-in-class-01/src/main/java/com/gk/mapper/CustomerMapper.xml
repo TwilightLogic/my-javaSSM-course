@@ -2,8 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gk.mapper.CustomerMapper">
+    <!--  1. 根据id查询顾客信息  -->
     <select id="findCustomerById" parameterType="Integer"
             resultType="com.gk.po.User">
         select * from mybatis.t_customer where id = #{id}
     </select>
+
+    <!--  2. 根据客户名模糊查询顾客信息  -->
+    <select id="findCustomerByName" parameterType="String"
+            resultType="com.gk.po.User">
+        select * from mybatis.t_customer where username like '%${value}%'
+    </select>
+
 </mapper>
