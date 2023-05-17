@@ -15,6 +15,10 @@ public class UserAuthService implements UserDetailsService {
     @Resource
     UserMapper mapper;
 
+    // build()方法返回一个UserDetails对象，
+    // 该对象包含了从数据库中获取的用户名、密码和角色信息。
+    // Spring Security将使用这些信息来进行用户认证和授权的操作。
+    // 这里的 `s` 是用户名
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         String password = mapper.getPasswordByUsername(s);  // 从数据库根据用户名获取密码
