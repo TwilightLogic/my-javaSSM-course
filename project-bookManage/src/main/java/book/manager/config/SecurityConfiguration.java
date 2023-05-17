@@ -66,6 +66,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             auth
                     .userDetailsService(service)
                     .passwordEncoder(new BCryptPasswordEncoder());
-
     }
 }
