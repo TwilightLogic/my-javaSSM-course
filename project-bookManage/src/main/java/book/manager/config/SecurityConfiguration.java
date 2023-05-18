@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PersistentTokenRepository jdbcRepository(@Autowired DataSource dataSource){
         JdbcTokenRepositoryImpl repository = new JdbcTokenRepositoryImpl();  // 使用基于JDBC的实现
         repository.setDataSource(dataSource);   // 配置数据源
-        // repository.setCreateTableOnStartup(true);   // 启动时自动创建用于存储Token的表（建议第一次启动之后删除该行）
+        repository.setCreateTableOnStartup(true);   // 启动时自动创建用于存储Token的表（建议第一次启动之后删除该行）
         return repository;
     }
 

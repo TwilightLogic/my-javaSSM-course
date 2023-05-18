@@ -21,7 +21,7 @@ public class RootConfiguration {
     @Bean
     public DataSource dataSource(){
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/study");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/book_manage");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("20010609");
