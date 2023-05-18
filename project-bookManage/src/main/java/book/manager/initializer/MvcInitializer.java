@@ -3,9 +3,22 @@ package book.manager.initializer;
 import book.manager.config.MvcConfiguration;
 import book.manager.config.RootConfiguration;
 import book.manager.config.SecurityConfiguration;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 public class MvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    // 编码UTF-8
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        servletContext.addFilter("characterEncodingFilter", new CharacterEncodingFilter("UTF-8", true))
+                .addMappingForUrlPatterns(null, false, "/*");
+        super.onStartup(servletContext);
+    }
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -21,4 +34,5 @@ public class MvcInitializer extends AbstractAnnotationConfigDispatcherServletIni
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 }

@@ -26,7 +26,7 @@ public class UserAuthService implements UserDetailsService {
         if(user.getPassword() == null)
             throw new UsernameNotFoundException("登录失败，用户名或密码错误！");
         return User   // 这里需要返回UserDetails，SpringSecurity会根据给定的信息进行比对
-                .withUsername(user.getUsername())
+                .withUsername(user.getName())
                 .password(user.getPassword())   // 直接从数据库取的密码
                 .roles(user.getRole())   // 用户角色
                 .build();

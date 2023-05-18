@@ -10,7 +10,7 @@ public interface UserMapper {
 
     // 这里的password要填加密后的密码，不能填"123456"（在实现类那里写）
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
-    @Insert("insert into users(username, role, password) values(#{username}, #{role}, #{password})")
+    @Insert("insert into users(name, role, password) values(#{name}, #{role}, #{password})")
     int registerUser(AuthUser user);
 
     @Insert("insert into student(uid, name, grade, sex) values(#{uid}, #{name}, #{grade}, #{sex})")
