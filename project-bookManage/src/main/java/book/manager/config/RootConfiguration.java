@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -19,6 +20,7 @@ import javax.sql.DataSource;
 })
 @MapperScan("book.manager.mapper")
 @Configuration
+@EnableTransactionManagement
 public class RootConfiguration {
     @Bean
     public DataSource dataSource(){
@@ -35,5 +37,12 @@ public class RootConfiguration {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         return bean;
+    }
+
+    // Spring事务管理 ⬇️
+    // 加了之后事务管理：即使有用户输入的脏数据也不会存储到我们的数据库中
+    @Bean
+    public TransactionManager transactionManager(@Autowired DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
     }
 }

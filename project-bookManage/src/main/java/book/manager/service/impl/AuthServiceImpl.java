@@ -5,6 +5,7 @@ import book.manager.mapper.UserMapper;
 import book.manager.service.AuthService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -14,6 +15,8 @@ public class AuthServiceImpl implements AuthService {
     @Resource
     UserMapper mapper;
 
+    // 加了
+    @Transactional
     @Override
     public void register(String name, String sex, String grade, String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
