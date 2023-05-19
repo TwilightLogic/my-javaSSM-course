@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -50,11 +49,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()   // 配置哪些请求会被拦截，哪些请求必须具有什么角色才能访问
-                .antMatchers("/static/**", "/login", "/register", "/api/auth/**").permitAll()    // 静态资源，使用permitAll来运行任何人访问
-                .antMatchers("/**").hasAnyRole("user", "admin")     // 所有请求必须登录并且是user角色才可以访问（不包含上面的静态资源）
+                .antMatchers("/static/**", "/page/auth/**", "/api/auth/**").permitAll()    // 静态资源，使用permitAll来运行任何人访问
+                .antMatchers("/page/user/**").hasRole("user")     // 所有请求必须登录并且是user角色才可以访问（不包含上面的静态资源）
+                .antMatchers("/page/admin/**").hasRole("admin")
+                .anyRequest().hasAnyRole("user", "admin")
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/page/auth/login")
                 .loginProcessingUrl("/api/auth/login")
                 .successHandler(this::onAuthenticationSuccess)
                 .and()

@@ -1,4 +1,4 @@
-package book.manager.controller;
+package book.manager.controller.api;
 
 import book.manager.service.AuthService;
 import org.springframework.stereotype.Controller;
