@@ -123,6 +123,12 @@ iframe {
     border-radius: 5px;
 }
 
+.btn:hover,
+.btn:focus {
+    color: var(--main-white);
+    background: var(--main-color);
+}
+
 .ad-color {
     color: var(--main-color);
 }
@@ -341,7 +347,7 @@ iframe {
     letter-spacing: .4px
 }
 
-.ad-other-fields {
+.ad-other-feilds {
     margin: 37px 0 0px;
     display: flex;
     justify-content: space-between;
