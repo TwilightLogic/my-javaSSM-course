@@ -5,8 +5,8 @@ import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserMapper {
-    @Select("select password from users where username = #{username}")
-    AuthUser getPasswordByUsername(String username);
+    @Select("select * from users where name = #{name}")
+    AuthUser getPasswordByUsername(String name);
 
     // 这里的password要填加密后的密码，不能填"123456"（在实现类那里写）
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")

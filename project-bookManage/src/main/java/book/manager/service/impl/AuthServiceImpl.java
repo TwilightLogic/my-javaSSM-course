@@ -15,7 +15,6 @@ public class AuthServiceImpl implements AuthService {
     @Resource
     UserMapper mapper;
 
-    // 加了
     @Transactional
     @Override
     public void register(String name, String sex, String grade, String password) {

@@ -12,14 +12,6 @@ import javax.servlet.ServletException;
 
 public class MvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    // 编码UTF-8
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        servletContext.addFilter("characterEncodingFilter", new CharacterEncodingFilter("UTF-8", true))
-                .addMappingForUrlPatterns(null, false, "/*");
-        super.onStartup(servletContext);
-    }
-
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{RootConfiguration.class, SecurityConfiguration.class};

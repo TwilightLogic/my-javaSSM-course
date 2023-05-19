@@ -1,5 +1,7 @@
 package book.manager.config;
 
+import book.manager.entity.AuthUser;
+import book.manager.mapper.UserMapper;
 import book.manager.service.impl.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,12 +10,19 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
@@ -21,6 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Resource
     UserAuthService service;
+
+    @Resource
+    UserMapper mapper;
 
     @Resource
     PersistentTokenRepository repository;
@@ -39,12 +51,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()   // 配置哪些请求会被拦截，哪些请求必须具有什么角色才能访问
                 .antMatchers("/static/**", "/login", "/register", "/api/auth/**").permitAll()    // 静态资源，使用permitAll来运行任何人访问
-                .antMatchers("/**").hasRole("user")     // 所有请求必须登录并且是user角色才可以访问（不包含上面的静态资源）
+                .antMatchers("/**").hasAnyRole("user", "admin")     // 所有请求必须登录并且是user角色才可以访问（不包含上面的静态资源）
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/api/auth/login")
-                .defaultSuccessUrl("/index", true)
+                .successHandler(this::onAuthenticationSuccess)
                 .and()
                 .logout()
                 .logoutUrl("/api/auth/logout")
@@ -64,5 +76,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             auth
                     .userDetailsService(service)
                     .passwordEncoder(new BCryptPasswordEncoder());
+    }
+
+    private void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
+        HttpSession session = httpServletRequest.getSession();
+        AuthUser user = mapper.getPasswordByUsername(authentication.getName());
+        session.setAttribute("user", user);
+        httpServletResponse.sendRedirect("/book_manager/index");
     }
 }
