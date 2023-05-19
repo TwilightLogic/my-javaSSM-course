@@ -87,7 +87,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         if (user.getRole().equals("admin")) {
             httpServletResponse.sendRedirect("/book_manager/page/admin/index");
         } else {
-            httpServletResponse.sendRedirect("/book_manager/index");
+            httpServletResponse.sendRedirect("/book_manager/page/user/index");
         }
 
     }

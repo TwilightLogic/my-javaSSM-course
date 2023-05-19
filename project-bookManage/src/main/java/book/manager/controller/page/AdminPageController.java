@@ -19,7 +19,12 @@ public class AdminPageController {
     @RequestMapping("/index")
     public String index(HttpSession session, Model model) {
         model.addAttribute("user", service.findUser(session));
-
         return "/admin/index";
+    }
+
+    @RequestMapping("/book")
+    public String book(HttpSession session, Model model) {
+        model.addAttribute("user", service.findUser(session));
+        return "/admin/book";
     }
 }
