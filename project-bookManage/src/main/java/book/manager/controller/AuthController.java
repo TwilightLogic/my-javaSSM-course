@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 
 @Controller
+@RequestMapping("/api/auth")
 public class AuthController {
 
     @Resource
     AuthService service;
 
     // 客户端发送HTTP POST请求到/doRegister路径时，register()方法才调用⬇️
-    @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@RequestParam("username") String name,
                            @RequestParam("sex") String sex,
                            @RequestParam("grade") String grade,
@@ -25,7 +26,7 @@ public class AuthController {
         // 它可以用于处理GET或POST请求中的查询参数或表单字段。
 
         service.register(name, sex, grade, password);
-        return "login";
+        return "redirect:/login";
     }
 
 }
