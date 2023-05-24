@@ -1,6 +1,5 @@
 package book.manager.controller.page;
 
-import book.manager.entity.AuthUser;
 import book.manager.service.AuthService;
 import book.manager.service.BookService;
 import org.springframework.stereotype.Controller;
@@ -40,5 +39,12 @@ public class AdminPageController {
         model.addAttribute("user", authService.findUser(session));
         model.addAttribute("bookList", bookService.getAllBook());
         return "/admin/book";
+    }
+
+    @RequestMapping("/add-book")
+    public String addBook(HttpSession session, Model model) {
+        model.addAttribute("user", authService.findUser(session));
+        model.addAttribute("bookList", bookService.getAllBook());
+        return "/admin/add-book";
     }
 }
