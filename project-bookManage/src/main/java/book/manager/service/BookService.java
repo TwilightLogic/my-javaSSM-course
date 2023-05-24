@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface BookService {
     List<Book> getAllBook();
+    void deleteBook(int bid);
 }

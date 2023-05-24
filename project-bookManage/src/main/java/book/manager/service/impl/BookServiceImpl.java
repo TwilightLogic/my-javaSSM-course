@@ -18,4 +18,9 @@ public class BookServiceImpl implements BookService {
     public List<Book> getAllBook() {
         return mapper.allBook();
     }
+
+    @Override
+    public void deleteBook(int bid) {
+        mapper.deleteBook(bid);
+    }
 }

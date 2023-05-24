@@ -26,6 +26,7 @@ public class AdminApiController {
 
     @RequestMapping(value = "del-book", method = RequestMethod.GET)
     public String deleteBook(@RequestParam("id") int id) {
-        return "redirect:/page/admin/index";
+        bookService.deleteBook(id);
+        return "redirect:/page/admin/book";
     }
 }

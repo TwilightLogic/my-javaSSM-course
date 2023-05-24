@@ -50,8 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()   // 配置哪些请求会被拦截，哪些请求必须具有什么角色才能访问
                 .antMatchers("/static/**", "/page/auth/**", "/api/auth/**").permitAll()    // 静态资源，使用permitAll来运行任何人访问
-                .antMatchers("/page/user/**").hasRole("user")     // 所有请求必须登录并且是user角色才可以访问（不包含上面的静态资源）
-                .antMatchers("/page/admin/**").hasRole("admin")
+                .antMatchers("/page/user/**", "/api/user/**").hasRole("user")     // 所有请求必须登录并且是user角色才可以访问（不包含上面的静态资源）
+                .antMatchers("/page/admin/**", "/api/admin/**").hasRole("admin")
                 .anyRequest().hasAnyRole("user", "admin")
                 .and()
                 .formLogin()
