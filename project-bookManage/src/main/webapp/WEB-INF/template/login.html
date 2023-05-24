@@ -26,14 +26,14 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="ad-auth-img">
-                        <img th:src="@{/static/picture/auth-img1.png}" alt="">
+                        <img th:src="@{/static/picture/auth-img1.png}" alt="" class="ad-auth-img--radius">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="ad-auth-content">
                         <form th:action="@{/api/auth/login}" method="post">
                             <h2><span class="primary">你好,</span>请登录!</h2>
-                            <p>登录后即可访问图书管理系统</p>
+                            <p>登录即可访问图书管理系统（仅庆祝曼城的英超3连冠）</p>
                             <div class="ad-auth-form">
                                 <div class="ad-auth-fields mb-30">
                                     <input name="username" type="text" placeholder="用户名" class="ad-input">

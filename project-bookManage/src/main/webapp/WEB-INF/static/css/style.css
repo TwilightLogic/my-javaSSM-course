@@ -1470,6 +1470,7 @@ thead th {
     align-items: center;
     padding: 10px 20px;
     justify-content: center;
+    gap: 8px;
     position: relative;
 }
 
@@ -1484,8 +1485,20 @@ thead th {
     opacity: 0.1;
 }
 
+.logo-wrapper:hover {
+    cursor: pointer;
+}
+
 .admin-logo img {
-    max-width: 200px;
+    max-width: 48px;
+}
+
+.logo-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    user-select: none;
+    text-transform: uppercase;
 }
 
 .header-right {
@@ -1496,12 +1509,29 @@ thead th {
     padding: 0;
     position: relative;
 	background: var(--white);
+    text-align: center;
 }
 
 .header-left {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    margin-left: 24px;
+}
+
+.header-left p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #6CABDD;
+    align-self: center;
+    user-select: none;
+}
+
+.header-left--icon {
+    display: inline-block;
+    font-size: 24px;
+    color: #6CABDD;
 }
 
 .toggle-btn span {
@@ -2667,6 +2697,7 @@ body.mini-sidebar .main-content {
 .ad-title {
     font-size: 18px;
     font-weight: 600;
+    user-select: none;
 }
 
 .ad-card-title {

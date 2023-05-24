@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}">
 </head>
 <body>
 <header class="header-wrapper main-header" th:fragment="title">
@@ -12,13 +13,17 @@
             <a href="" class="admin-logo">
                 <img th:src="@{/static/picture/logo.png}" alt="">
             </a>
+            <h3 class="logo-title">Board</h3>
         </div>
         <div class="header-right">
-            <div class="header-left"></div>
+            <div class="header-left">
+                <p>I love Manchester City</p>
+                <ion-icon name="heart" class="header-left--icon"></ion-icon>
+            </div>
             <div class="header-controls">
                 <div class="user-info-wrapper header-links">
                     <a href="javascript:void(0);" class="user-info">
-                        <img th:src="@{/static/picture/user.jpg}" alt="" class="user-img">
+                        <img th:src="@{/static/picture/user.png}" alt="" class="user-img">
                         <div class="blink-animation">
                             <span class="blink-circle"></span>
                             <span class="main-circle"></span>
@@ -88,5 +93,7 @@
         </ul>
     </div>
 </aside>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
