@@ -1,6 +1,7 @@
 package book.manager.service.impl;
 
 import book.manager.entity.Book;
+import book.manager.entity.Borrow;
 import book.manager.mapper.BookMapper;
 import book.manager.mapper.UserMapper;
 import book.manager.service.BookService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -21,6 +23,19 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getAllBook() {
         return bookMapper.allBook();
+    }
+
+    @Override
+    public List<Book> getAllBookWithoutBorrow() {
+        List<Book> books = bookMapper.allBook();
+        List<Integer> borrows = bookMapper.borrowList()
+                .stream()
+                .map(Borrow::getBid)
+                .collect(Collectors.toList());
+        return books
+                .stream()
+                .filter(book -> borrows.contains(book.getBid()))
+                .collect(Collectors.toList());
     }
 
     @Override
