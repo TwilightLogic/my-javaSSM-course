@@ -719,10 +719,15 @@ body .icon-badge {
     line-height: 25px;
 }
 
-svg.default-size {
+.default-size {
     height: 20px;
     width: 20px;
-    fill: var(--primary);
+    color: #00acee;
+    transition: all .3s;
+}
+
+.default-size:hover {
+    color: #0078a7;
 }
 
 .relative {
@@ -4851,7 +4856,7 @@ body .note-toolbar.card-header button.note-btn:after {
     transition: all 0.3s;
 }
 .ad-btn:hover {
-    background: var(--title-color);
+    background: #0078a7;
 }
 
 /* Custom Css Style  */

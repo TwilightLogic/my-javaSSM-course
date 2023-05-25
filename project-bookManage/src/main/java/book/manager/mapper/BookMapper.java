@@ -18,4 +18,7 @@ public interface BookMapper {
     void addBook(@Param("title") String title,
                  @Param("desc") String desc,
                  @Param("price") Double price);
+
+    @Insert("insert into borrow(bid, sid, `time`) values(#{bid}, #{sid}, NOW())")
+    void addBorrow(@Param("bid") int bid, @Param("sid") int sid);
 }

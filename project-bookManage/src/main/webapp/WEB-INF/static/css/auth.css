@@ -121,12 +121,23 @@ iframe {
     overflow: hidden;
     border: none;
     border-radius: 5px;
+    transition: all .3s;
 }
 
 .btn:hover,
 .btn:focus {
     color: var(--main-white);
-    background: var(--main-color);
+    background-color: #0078a7;
+}
+
+.tips-login,
+.tips-register {
+    transition: all .3s;
+}
+
+.tips-login:hover,
+.tips-register:hover {
+    color: #0078a7;
 }
 
 .ad-color {
@@ -196,7 +207,7 @@ iframe {
     padding: 0 35px;
 }
 
-.ad-auth-img--radius {
+.ad-auth-img--detail {
     border-radius: 20px;
 }
 
@@ -289,7 +300,8 @@ iframe {
     margin: 0;
     position: relative;
     padding-left: 30px;
-    cursor: pointer
+    cursor: pointer;
+    user-select: none;
 }
 
 .ad-checkbox span:before {

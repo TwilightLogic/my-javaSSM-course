@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/api/auth")
-public class AuthController {
+public class AuthApiController {
 
     @Resource
     AuthService service;

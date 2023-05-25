@@ -2,6 +2,7 @@ package book.manager.service.impl;
 
 import book.manager.entity.Book;
 import book.manager.mapper.BookMapper;
+import book.manager.mapper.UserMapper;
 import book.manager.service.BookService;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +13,30 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
 
     @Resource
-    BookMapper mapper;
+    BookMapper bookMapper;
+
+    @Resource
+    UserMapper userMapper;
 
     @Override
     public List<Book> getAllBook() {
-        return mapper.allBook();
+        return bookMapper.allBook();
     }
 
     @Override
     public void deleteBook(int bid) {
-        mapper.deleteBook(bid);
+        bookMapper.deleteBook(bid);
     }
 
     @Override
     public void addBook(String title, String desc, Double price) {
-        mapper.addBook(title, desc, price);
+        bookMapper.addBook(title, desc, price);
+    }
+
+    @Override
+    public void borrowBook(int bid, int id) {
+        Integer sid = userMapper.getSidByUserId(id);
+        if (sid == null) return;
+        bookMapper.addBorrow(bid, sid);
     }
 }
