@@ -67,4 +67,11 @@ public class BookServiceImpl implements BookService {
         if (sid == null) return;
         bookMapper.addBorrow(bid, sid);
     }
+
+    @Override
+    public void returnBook(int bid, int id) {
+        Integer sid = userMapper.getSidByUserId(id);
+        if (sid == null) return;
+        bookMapper.deleteBorrow(bid, sid);
+    }
 }

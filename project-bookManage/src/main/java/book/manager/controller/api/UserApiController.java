@@ -23,4 +23,11 @@ public class UserApiController {
         bookService.borrowBook(bid, user.getId());
         return "redirect:/page/user/book";
     }
+
+    @RequestMapping(value = "/return-book", method = RequestMethod.GET)
+    public String returnBook(@RequestParam("id") int bid,
+                             @SessionAttribute("user") AuthUser user) {
+        bookService.returnBook(bid, user.getId());
+        return "redirect:/page/user/book";
+    }
 }
