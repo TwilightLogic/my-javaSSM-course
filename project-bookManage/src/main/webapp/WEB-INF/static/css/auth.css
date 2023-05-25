@@ -104,7 +104,7 @@ iframe {
     background: #cfecff;
 }
 ::-webkit-scrollbar-thumb {
-    background: #11a1fd;
+    background: #6cabdd;
 }
 .btn {
     min-width: 170px;
@@ -114,7 +114,7 @@ iframe {
     display: inline-block;
     text-align: center;
     color: var(--main-white);
-    background: var(--main-color);
+    background: #619ac7;
     text-transform: capitalize;
     font-weight: 500;
     position: relative;
@@ -127,7 +127,7 @@ iframe {
 .btn:hover,
 .btn:focus {
     color: var(--main-white);
-    background-color: #0078a7;
+    background-color: #4c789b;
 }
 
 .tips-login,
@@ -137,7 +137,7 @@ iframe {
 
 .tips-login:hover,
 .tips-register:hover {
-    color: #0078a7;
+    color: #4c789b;
 }
 
 .ad-color {
@@ -160,7 +160,7 @@ iframe {
 /*--- auth CSS ----*/
 
 .ad-auth-wrapper {
-    background-color: var(--main-color);
+    background: linear-gradient(to right bottom, rgba(108, 171, 221, .85), rgba(86, 137, 177, .85));
     position: fixed;
     top: 0;
     right: 0;
@@ -204,10 +204,12 @@ iframe {
 }
 
 .ad-auth-img {
-    padding: 0 35px;
+    padding: 35px;
 }
 
 .ad-auth-img--detail {
+    -webkit-mask-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)); /* 使用渐变作为遮罩 */
+    mask-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
     border-radius: 20px;
 }
 
@@ -255,11 +257,11 @@ iframe {
 }
 
 .ad-auth-fields input:focus {
-    border-color: var(--main-color);
+    border-color: #6cabdd;
 }
 
 .ad-auth-fields input:focus~.ad-auth-icon svg path {
-    fill: var(--main-color);
+    fill: #6cabdd;
 }
 
 .ad-auth-fields input,
@@ -348,12 +350,12 @@ iframe {
 }
 
 .ad-checkbox input:checked~span:before {
-    background-color: var(--main-color);
+    background-color: #6cabdd;
     border: 1px solid transparent
 }
 
 .ad-checkbox input:checked~span {
-    color: var(--main-color);
+    color: #6cabdd;
 }
 
 .ad-forgot-link {
@@ -375,7 +377,7 @@ iframe {
 }
 
 .ad-register-text a {
-    color: var(--main-color);
+    color: #619ac7;
     font-weight: 700;
 }
 

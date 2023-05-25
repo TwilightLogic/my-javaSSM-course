@@ -132,7 +132,7 @@ ul {
     background: #cfecff;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--primary);
+    background: #1C2C5B;
 }
 .btn.focus,
 .btn:focus {
@@ -1469,6 +1469,7 @@ thead th {
 }
 
 .logo-wrapper {
+    background-color: #1C2C5B;
     width: 280px;
     height: 80px;
     display: flex;
@@ -1959,7 +1960,7 @@ body.open-setting:before {
     width: 6px;
     height: 6px;
     border-radius: 30px;
-    background-color: var(--primary);
+    background-color: #6cabdd;
     position: absolute;
     right: 6px;
     top: -10px;
@@ -1981,7 +1982,7 @@ body.open-setting:before {
 }
 
 .drop-down-header {
-    background: var(--primary);
+    background: #6cabdd;
     color: var(--white);
     padding: 15px 20px 13px;
     text-align: center;
@@ -2015,12 +2016,16 @@ body.open-setting:before {
     visibility: hidden;
 }
 
+.user-info-box--text:hover {
+    color: #6cabdd;
+}
+
 .user-info-box:before {
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 6px solid var(--primary);
+    border-bottom: 6px solid #6cabdd;
     content: "";
     position: absolute;
     right: 35px;
@@ -2063,7 +2068,7 @@ body.open-setting:before {
 
 .user-info-box ul li i {
     margin-right: 3px;
-    color: var(--primary);
+    color: #6cabdd;
 }
 
 
@@ -2077,7 +2082,7 @@ body.open-setting:before {
 }
 .notification-info .count-notification {
     position: absolute;
-    background: var(--primary);
+    background: #6cabdd;
     color: var(--white);
     display: inline-block;
     width: 6px;
@@ -2206,12 +2211,12 @@ body.open-setting:before {
 
 .side-menu-wrap ul li.active>a,
 .side-menu-wrap ul li:hover>a {
-    color: var(--primary);
+    color: #a7cdeb;
 }
 
 .side-menu-wrap ul li.active>a .icon-menu svg,
 .side-menu-wrap ul li:hover>a .icon-menu svg {
-    fill: var(--primary);
+    fill: #a7cdeb;
 }
 
 .side-menu-wrap ul li.active>a .icon-menu.feather-icon svg,
@@ -2309,7 +2314,7 @@ svg[stroke="currentColor"] {
 .sidebar-wrapper {
     width: 280px;
     z-index: 9;
-    background: var(--secondary);
+    background: #1C2C5B;
     bottom: 0;
     position: fixed;
     top: 80px;
@@ -2392,15 +2397,15 @@ svg[stroke="currentColor"] {
     transition: all 0.3s;
 }
 .side-menu-wrap ul li.active>a:before{
-    background: var(--primary);
+    background: #a7cdeb;
 }
 
 .side-menu-wrap ul li>a:hover {
-    color: var(--primary);
+    color: #a7cdeb;
 }
 
 .side-menu-wrap ul li>a:hover .icon-dash {
-    background: var(--primary);
+    background: #a7cdeb;
 }
 
 .side-menu-wrap ul li>a .icon-dash,
@@ -2413,7 +2418,7 @@ svg[stroke="currentColor"] {
 }
 
 .side-menu-wrap ul li.active>a {
-    color: var(--primary);
+    color: #a7cdeb;
 }
 
 .side-menu-wrap ul li ul.sub-menu {
@@ -2541,6 +2546,11 @@ body.mini-sidebar .main-content {
     margin-left: 80px;
 }
 
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 .page-title-box,
 .breadcrumb-list {
     display: inline-block;
@@ -2635,7 +2645,7 @@ body.mini-sidebar .main-content {
 .icon-info svg {
     height: 60px;
     width: 60px;
-    fill: var(--primary-light);
+    fill: #6cabdd;
 }
 
 .ad-info-card {
@@ -4848,7 +4858,7 @@ body .note-toolbar.card-header button.note-btn:after {
     font-size: 14px;
     font-weight: 400;
     border-radius: 3px;
-    background: var(--primary);
+    background: #6cabdd;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -4856,7 +4866,7 @@ body .note-toolbar.card-header button.note-btn:after {
     transition: all 0.3s;
 }
 .ad-btn:hover {
-    background: #0078a7;
+    background: #5689b1;
 }
 
 /* Custom Css Style  */
