@@ -28,13 +28,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getAllBookWithoutBorrow() {
         List<Book> books = bookMapper.allBook();
+        // 调用 bookMapper 的 borrowList() 方法获取借阅列表，并将其转换为一个包含借阅图书ID的整数列表
         List<Integer> borrows = bookMapper.borrowList()
                 .stream()
                 .map(Borrow::getBid)
                 .collect(Collectors.toList());
+        // 通过过滤操作，筛选出在借阅列表中的书籍，并将结果收集到一个新的列表中
         return books
                 .stream()
-                .filter(book -> borrows.contains(book.getBid()))
+                .filter(book -> !borrows.contains(book.getBid()))
                 .collect(Collectors.toList());
     }
 

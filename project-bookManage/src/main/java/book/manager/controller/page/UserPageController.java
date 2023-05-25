@@ -22,7 +22,7 @@ public class UserPageController {
     @RequestMapping("/index")
     public String index(HttpSession session, Model model) {
         model.addAttribute("user", authService.findUser(session));
-        model.addAttribute("bookList", bookService.getAllBook());
+        model.addAttribute("bookList", bookService.getAllBookWithoutBorrow());
         return "/user/index";
     }
 
