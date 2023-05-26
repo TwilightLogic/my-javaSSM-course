@@ -2,6 +2,7 @@ package book.manager.service.impl;
 
 import book.manager.entity.Book;
 import book.manager.entity.Borrow;
+import book.manager.entity.BorrowDetails;
 import book.manager.mapper.BookMapper;
 import book.manager.mapper.UserMapper;
 import book.manager.service.BookService;
@@ -73,5 +74,10 @@ public class BookServiceImpl implements BookService {
         Integer sid = userMapper.getSidByUserId(id);
         if (sid == null) return;
         bookMapper.deleteBorrow(bid, sid);
+    }
+
+    @Override
+    public List<BorrowDetails> getBorrowDetailsList() {
+        return bookMapper.borrowDetailsList();
     }
 }

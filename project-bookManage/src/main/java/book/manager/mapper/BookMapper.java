@@ -36,4 +36,19 @@ public interface BookMapper {
     @Select("select * from borrow where sid = #{sid}")
     List<Borrow> borrowListBySid(int sid);
 
+    @Results({
+            @Result(id = true, column = "id", property = "id"),
+            @Result(column = "title", property = "book_title"),
+            @Result(column = "name", property = "user_name"),
+            @Result(column = "time", property = "time")
+    })
+    @Select("select * from borrow left join book on book.bid = borrow.bid " +
+            "left join student on borrow.sid = student.sid")
+    List<BorrowDetails> borrowDetailsList();
+
+    @Select("select count(*) from book")
+    int getBookCount();
+
+    @Select("select count(*) from borrow")
+    int getBorrowCount();
 }
