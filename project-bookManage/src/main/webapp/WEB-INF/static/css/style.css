@@ -1627,6 +1627,78 @@ thead th {
 }
 
 /* notification popup css */
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.notification-container {
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.notification-menu :first-child {
+    border-bottom: 2px solid #6cabdd;
+    margin-bottom: -1px;
+}
+
+.notification-menu {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    text-align: center;
+    border-bottom: 1px solid #efefef;
+}
+
+.notification-menu--item {
+    color: #1b1e21;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.notification-content {
+    padding: 0 36px;
+}
+
+.profile-image-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+}
+
+.notification-content--list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.notification-content-container h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+}
+
+.notification-content-container p {
+    font-size: 16px;
+    color: #444;
+}
+
 .of-notification-comment {
     position: absolute;
     width: 400px;
