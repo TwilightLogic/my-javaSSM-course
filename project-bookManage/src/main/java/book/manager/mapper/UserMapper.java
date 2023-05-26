@@ -19,6 +19,6 @@ public interface UserMapper {
                        @Param("grade") String grade,
                        @Param("sex") String sex);
 
-    @Select("select id from student where uid = #{uid}")
+    @Select("select sid from student where uid = #{uid}")
     Integer getSidByUserId(int uid);
 }

@@ -2,6 +2,7 @@ package book.manager.mapper;
 
 import book.manager.entity.Book;
 import book.manager.entity.Borrow;
+import book.manager.entity.BorrowDetails;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -34,4 +35,5 @@ public interface BookMapper {
 
     @Select("select * from borrow where sid = #{sid}")
     List<Borrow> borrowListBySid(int sid);
+
 }
