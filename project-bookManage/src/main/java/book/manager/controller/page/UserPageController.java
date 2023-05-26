@@ -34,4 +34,10 @@ public class UserPageController {
         model.addAttribute("bookList", bookService.getAllBorrowedBookById(user.getId()));
         return "/user/book";
     }
+
+    @RequestMapping("/notification")
+    public String notification(HttpSession session, Model model) {
+        model.addAttribute("user", authService.findUser(session));
+        return "/user/notification";
+    }
 }
