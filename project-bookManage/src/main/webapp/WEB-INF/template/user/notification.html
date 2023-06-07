@@ -40,7 +40,7 @@
       <div class="section--notification">
         <header class="notification-header">
           <h3>通知</h3>
-          <i>icon</i>
+          <ion-icon name="settings-outline" class="notification-header--icon"></ion-icon>
         </header>
         <div class="notification-container">
           <menu class="notification-menu">
@@ -48,29 +48,59 @@
             <div class="notification-menu--item">已认证</div>
             <div class="notification-menu--item">提及</div>
           </menu>
-          <div class="notification-content">
-            <ul>
-              <li class="notification-content--list">
-                <div class="profile-image-container">
-                  <img th:src="@{/static/picture/profile-1.jpg}" class="profile-image" />
-                </div>
-                <div class="notification-content-container">
-                  <h4>Laura Betty</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-                </div>
-              </li>
-              <li class="notification-content--list">
-                <i>Profile</i>
-                <h4>name</h4>
-                <p>lorem lorem lorem lorem</p>
-              </li>
-            </ul>
-          </div>
+          <article class="notification-content">
+            <div class="notification-content-box">
+              <div class="profile-image-box">
+                <img th:src="@{/static/picture/profile-1.jpg}" class="profile-image" />
+                <ion-icon name="ellipsis-horizontal" class="profile-image-box--icon"></ion-icon>
+              </div>
+              <div class="notification-content-main">
+                <h4 class="author">Laura Berry</h4>
+                <p class="notification-content-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="notification-content">
+            <div class="notification-content-box">
+              <div class="profile-image-box">
+                <img th:src="@{/static/picture/profile-2.jpg}" class="profile-image" />
+                <ion-icon name="ellipsis-horizontal" class="profile-image-box--icon"></ion-icon>
+              </div>
+              <div class="notification-content-main">
+                <h4 class="author">Lucas Wixx</h4>
+                <p class="notification-content-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="notification-content">
+            <div class="notification-content-box">
+              <div class="profile-image-box">
+                <img th:src="@{/static/picture/profile-3.jpg}" class="profile-image" />
+                <ion-icon name="ellipsis-horizontal" class="profile-image-box--icon"></ion-icon>
+              </div>
+              <div class="notification-content-main">
+                <h4 class="author">Joyce Max</h4>
+                <p class="notification-content-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </div>

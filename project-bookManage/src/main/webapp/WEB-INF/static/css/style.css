@@ -1632,6 +1632,7 @@ thead th {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 16px;
 }
 
 .notification-header h3 {
@@ -1639,21 +1640,46 @@ thead th {
     font-weight: 600;
 }
 
+.notification-header--icon {
+    font-size: 24px;
+    transition: all .2s;
+}
+
+.notification-header--icon:hover {
+    cursor: pointer;
+    color: #6cabdd;
+}
+
 .notification-container {
     background-color: #fff;
     border-radius: 20px;
+    overflow: hidden;
+}
+
+.notification-content {
+    overflow: hidden;
+}
+
+.notification-content:not(:last-child) {
+    border-bottom: 1px solid rgba(153, 153, 153, .1);
+}
+
+.notification-content:hover {
+    background-color: rgba(153, 153, 153, .1);
+    cursor: pointer;
 }
 
 .notification-menu :first-child {
     border-bottom: 2px solid #6cabdd;
     margin-bottom: -1px;
+    color: #6cabdd;
 }
 
 .notification-menu {
+    margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
     text-align: center;
     border-bottom: 1px solid #efefef;
 }
@@ -1663,16 +1689,29 @@ thead th {
     padding: 16px;
     font-size: 18px;
     font-weight: 600;
+    user-select: none;
+    transition: all .2s;
 }
 
-.notification-content {
+.notification-menu--item:hover {
+    cursor: pointer;
+    color: #6cabdd;
+    background-color: rgba(153, 153, 153, .2);
+}
+
+.notification-content-box {
     padding: 0 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0;
 }
 
-.profile-image-container {
+.profile-image-box {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    transition: all .1s;
 }
 
 .profile-image {
@@ -1682,21 +1721,31 @@ thead th {
     box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
 }
 
-.notification-content--list {
+.profile-image-box--icon {
+    color: #555555;
+    font-size: 16px;
+}
+
+.profile-image-box--icon:hover {
+    color: #6cabdd;
+    cursor: pointer;
+}
+
+.notification-content-main {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
-.notification-content-container h4 {
+.author {
     font-size: 16px;
     font-weight: 700;
-    color: #333;
+    color: #0c0c0c;
 }
 
-.notification-content-container p {
+.notification-content-text {
     font-size: 16px;
-    color: #444;
+    color: #555555;
 }
 
 .of-notification-comment {
@@ -2511,6 +2560,12 @@ svg[stroke="currentColor"] {
 .icon-menu {
     margin-right: 20px;
     display: inline-block;
+}
+
+.icon-menu ion-icon {
+    height: 20px;
+    width: 20px;
+    fill: var(--white);
 }
 
 .icon-menu svg {
